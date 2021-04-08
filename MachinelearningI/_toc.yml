@@ -1,8 +1,8 @@
 # Table of content
 # Learn more at https://jupyterbook.org/customize/toc.html
 #
-- file: Aprendizaje_supervisado
-- file: Precio
-  sections:
-    - file: markdown
-    - file: notebooks
+- file: 1-DefinicionObjetivos
+- file: 2-Aprendizaje-No-Super
+- file: 3-Reduccion de la dimensionalidad
+- file: 4-Aprendizaje_supervisado
+
