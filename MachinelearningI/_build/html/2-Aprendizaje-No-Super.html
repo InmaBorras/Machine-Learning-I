@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5. Aprendizaje no supervisado &#8212; Práctica Machine Learning I</title>
+    <title>2.Aprendizaje no supervisado &#8212; Práctica Machine Learning I</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,8 +57,8 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="6. Técnicas de reduccion de la dimensionalidad" href="3-Reduccion de la dimensionalidad.html" />
-    <link rel="prev" title="1. Introducción." href="1-DefinicionObjetivos.html" />
+    <link rel="next" title="3. Técnicas de reduccion de la dimensionalidad" href="3-Reduccion_dimensionalidad.html" />
+    <link rel="prev" title="1. ANALISIS INICIAL" href="1-DefinicionObjetivos.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -91,34 +91,24 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="1-DefinicionObjetivos.html">
-   1.  Introducción.
+   1. ANALISIS INICIAL
   </a>
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   5. Aprendizaje no supervisado
+   2.Aprendizaje no supervisado
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="#dbscan">
-   DBSCAN
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="#hierarchical-clustering">
-   2. Hierarchical clustering
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3-Reduccion de la dimensionalidad.html">
-   6. Técnicas de reduccion de la dimensionalidad
+  <a class="reference internal" href="3-Reduccion_dimensionalidad.html">
+   3. Técnicas de reduccion de la dimensionalidad
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="4-Aprendizaje_supervisado.html">
-   7. Aprendizaje Supervisado
+   3. Aprendizaje Supervisado
   </a>
  </li>
 </ul>
@@ -224,31 +214,24 @@
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   5. Aprendizaje no supervisado
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#visualizacion-de-los-datos">
+   Visualización de los datos
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#visualizacion-de-los-datos">
-     5.1. Visualización de los datos
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#k-means">
-     5.2. K-Means
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#k-means">
+   K-Means
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#dbscan">
    DBSCAN
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#hierarchical-clustering">
-   2. Hierarchical clustering
+   Hierarchical clustering
   </a>
  </li>
 </ul>
@@ -263,7 +246,7 @@
               <div>
                 
   <div class="section" id="aprendizaje-no-supervisado">
-<h1>5. Aprendizaje no supervisado<a class="headerlink" href="#aprendizaje-no-supervisado" title="Permalink to this headline">¶</a></h1>
+<h1>2.Aprendizaje no supervisado<a class="headerlink" href="#aprendizaje-no-supervisado" title="Permalink to this headline">¶</a></h1>
 <p>Cargamos las librerías que vamos a necesitar  y el archivo donde se encuetran las funiones que usaremos posteriormente.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -549,7 +532,7 @@
 </div>
 </div>
 <div class="section" id="visualizacion-de-los-datos">
-<h2>5.1. Visualización de los datos<a class="headerlink" href="#visualizacion-de-los-datos" title="Permalink to this headline">¶</a></h2>
+<h2>Visualización de los datos<a class="headerlink" href="#visualizacion-de-los-datos" title="Permalink to this headline">¶</a></h2>
 <p>Primero reducimos la dimensionalidad  con el TSNE para poder representar todas la variables
 Tambien probamos selecionado las variables  fueron selecionadas en los  modelos ateriores  “Distania_NEW”, ” Latitude” y “longitude”.</p>
 <p>“Distania_NEW”, “Room” ” Latitude”, “Landsize” y ” Bathrooms”.</p>
@@ -623,10 +606,10 @@ Tambien probamos selecionado las variables  fueron selecionadas en los  modelos 
 </div>
 <img alt="_images/2-Aprendizaje-No-Super_12_1.png" src="_images/2-Aprendizaje-No-Super_12_1.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-[&#39;0&#39; &#39;1&#39; &#39;1&#39; ... &#39;1&#39; &#39;1&#39; &#39;0&#39;]
+[&#39;1&#39; &#39;0&#39; &#39;1&#39; ... &#39;0&#39; &#39;0&#39; &#39;0&#39;]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x7ff9d13d45b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x7f972f090eb0&gt;
 </pre></div>
 </div>
 <img alt="_images/2-Aprendizaje-No-Super_12_4.png" src="_images/2-Aprendizaje-No-Super_12_4.png" />
@@ -671,7 +654,7 @@ Tambien probamos selecionado las variables  fueron selecionadas en los  modelos 
 [&#39;1&#39; &#39;1&#39; &#39;1&#39; ... &#39;0&#39; &#39;1&#39; &#39;1&#39;]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x7ff9d1253b50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;mpl_toolkits.mplot3d.art3d.Path3DCollection at 0x7f972efe2df0&gt;
 </pre></div>
 </div>
 <img alt="_images/2-Aprendizaje-No-Super_14_4.png" src="_images/2-Aprendizaje-No-Super_14_4.png" />
@@ -681,7 +664,7 @@ Tambien probamos selecionado las variables  fueron selecionadas en los  modelos 
 <p>Duda: las variables estan correlacionadas?? Poner ejemplos de otras varaibles??</p>
 </div>
 <div class="section" id="k-means">
-<h2>5.2. K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h2>
+<h2>K-Means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h2>
 <p>Usaremos este modelo por que es simple y util para dataset grandes además es una técnica escalable.</p>
 <p>La estrategia que usaremos para realizar K-Means es :</p>
 <ul class="simple">
@@ -753,7 +736,6 @@ Cluster distances k-means: [1672490.31, 2778670.18, 14105984.11, 3397020.5]
 </pre></div>
 </div>
 <img alt="_images/2-Aprendizaje-No-Super_19_1.png" src="_images/2-Aprendizaje-No-Super_19_1.png" />
-<img alt="_images/2-Aprendizaje-No-Super_19_2.png" src="_images/2-Aprendizaje-No-Super_19_2.png" />
 </div>
 </div>
 <p>Parece que los clusters estan bastante descompensados, se puede observar en los diferentes tamaños y distancias, a pesar de que el coeficiende de silueta esta cerca de 0,6 por lo que los puntos de diferentes centroides estan bastante separados.</p>
@@ -800,6 +782,52 @@ Cluster distances k-means: [2069676.44, 2485170.9, 11070221.75]
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Parece que los clusters estan bastante descompensados, se puede observar en los diferentes tamaños y distancias. Sin embargo, en el coeficiente de silueta vemos que todos soperan el 0.6 por lo que estan bastante separados unos cluster de otros aunque los tamaños no lo sean.</p>
 <p>Podemos conlcuir que la separacion en 3 cluster es mas precisa ya que estan mejor separados entre si los datos de los diferentes clusters.</p>
@@ -890,6 +918,7 @@ Close to center
       <th>Lattitude</th>
       <th>Price</th>
       <th>precio_div</th>
+      <th>cluster</th>
     </tr>
   </thead>
   <tbody>
@@ -905,6 +934,7 @@ Close to center
       <td>-37.70830</td>
       <td>910000</td>
       <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>18434</th>
@@ -917,6 +947,7 @@ Close to center
       <td>144.97966</td>
       <td>-37.70697</td>
       <td>706000</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -931,6 +962,7 @@ Close to center
       <td>-37.70762</td>
       <td>750000</td>
       <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>8750</th>
@@ -943,6 +975,7 @@ Close to center
       <td>144.96640</td>
       <td>-37.71110</td>
       <td>640000</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -957,6 +990,7 @@ Close to center
       <td>-37.70309</td>
       <td>730000</td>
       <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>6610</th>
@@ -969,6 +1003,7 @@ Close to center
       <td>145.00010</td>
       <td>-37.70270</td>
       <td>779000</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -983,6 +1018,7 @@ Close to center
       <td>-37.71060</td>
       <td>752500</td>
       <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>5924</th>
@@ -995,6 +1031,7 @@ Close to center
       <td>144.95070</td>
       <td>-37.71700</td>
       <td>683500</td>
+      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
@@ -1009,6 +1046,7 @@ Close to center
       <td>-37.72310</td>
       <td>600000</td>
       <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>6430</th>
@@ -1021,6 +1059,7 @@ Close to center
       <td>145.00710</td>
       <td>-37.70200</td>
       <td>810000</td>
+      <td>0</td>
       <td>0</td>
     </tr>
   </tbody>
@@ -1056,6 +1095,7 @@ Close to center
       <th>Lattitude</th>
       <th>Price</th>
       <th>precio_div</th>
+      <th>cluster</th>
     </tr>
   </thead>
   <tbody>
@@ -1071,6 +1111,7 @@ Close to center
       <td>-37.54812</td>
       <td>930000</td>
       <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>17077</th>
@@ -1084,6 +1125,7 @@ Close to center
       <td>-38.05934</td>
       <td>442000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>23275</th>
@@ -1097,6 +1139,7 @@ Close to center
       <td>-37.40869</td>
       <td>390000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>16710</th>
@@ -1110,6 +1153,7 @@ Close to center
       <td>-37.40853</td>
       <td>366000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>11188</th>
@@ -1123,6 +1167,7 @@ Close to center
       <td>-37.64685</td>
       <td>650000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>25562</th>
@@ -1136,6 +1181,7 @@ Close to center
       <td>-37.40744</td>
       <td>560000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>20801</th>
@@ -1149,6 +1195,7 @@ Close to center
       <td>-37.40720</td>
       <td>411000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>27016</th>
@@ -1162,6 +1209,7 @@ Close to center
       <td>-37.40349</td>
       <td>565000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>23274</th>
@@ -1175,6 +1223,7 @@ Close to center
       <td>-37.39780</td>
       <td>600000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>23276</th>
@@ -1188,6 +1237,7 @@ Close to center
       <td>-37.39946</td>
       <td>590000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -1233,137 +1283,148 @@ Close to center
       <th>Lattitude</th>
       <th>Price</th>
       <th>precio_div</th>
+      <th>cluster</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>9533</th>
-      <td>3</td>
-      <td>13.9</td>
-      <td>1</td>
-      <td>2</td>
-      <td>638.0</td>
-      <td>6.455055</td>
-      <td>145.037911</td>
-      <td>-37.811033</td>
-      <td>1050000</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>12375</th>
-      <td>3</td>
-      <td>18.4</td>
-      <td>1</td>
-      <td>2</td>
-      <td>515.8</td>
-      <td>6.442608</td>
-      <td>145.031103</td>
-      <td>-37.812137</td>
-      <td>545000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1133</th>
+      <th>18042</th>
       <td>4</td>
-      <td>13.9</td>
+      <td>5.9</td>
       <td>2</td>
-      <td>2</td>
-      <td>364.6</td>
-      <td>6.452788</td>
-      <td>145.049978</td>
-      <td>-37.809721</td>
-      <td>1235000</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>1260</th>
-      <td>4</td>
-      <td>13.9</td>
-      <td>2</td>
-      <td>2</td>
-      <td>364.6</td>
-      <td>6.452788</td>
-      <td>145.049978</td>
-      <td>-37.809721</td>
-      <td>1235000</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>5943</th>
-      <td>4</td>
-      <td>9.9</td>
-      <td>2</td>
-      <td>2</td>
-      <td>490.3</td>
-      <td>6.452338</td>
-      <td>145.037719</td>
-      <td>-37.801243</td>
-      <td>900000</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>2711</th>
-      <td>2</td>
-      <td>9.2</td>
-      <td>1</td>
-      <td>2</td>
-      <td>2130.4</td>
-      <td>6.446261</td>
-      <td>145.023328</td>
-      <td>-37.798137</td>
-      <td>830000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>21349</th>
-      <td>1</td>
-      <td>6.3</td>
-      <td>1</td>
-      <td>1</td>
-      <td>110.7</td>
-      <td>6.464547</td>
-      <td>145.025140</td>
-      <td>-37.793561</td>
-      <td>312000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>1265</th>
-      <td>6</td>
-      <td>13.9</td>
       <td>3</td>
+      <td>620.0</td>
+      <td>0.174520</td>
+      <td>145.033760</td>
+      <td>-37.843910</td>
+      <td>3080000</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4743</th>
       <td>3</td>
-      <td>590.2</td>
-      <td>6.470239</td>
-      <td>145.056329</td>
-      <td>-37.854979</td>
-      <td>1300000</td>
+      <td>6.2</td>
       <td>1</td>
-    </tr>
-    <tr>
-      <th>18764</th>
       <td>2</td>
-      <td>4.3</td>
+      <td>363.1</td>
+      <td>0.203503</td>
+      <td>145.033978</td>
+      <td>-37.842145</td>
+      <td>1706000</td>
       <td>1</td>
       <td>1</td>
-      <td>979.9</td>
-      <td>6.443454</td>
-      <td>145.009735</td>
-      <td>-37.798933</td>
-      <td>560000</td>
-      <td>0</td>
     </tr>
     <tr>
-      <th>7503</th>
+      <th>4742</th>
+      <td>2</td>
+      <td>6.2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0.0</td>
+      <td>0.210908</td>
+      <td>145.034300</td>
+      <td>-37.840700</td>
+      <td>1290000</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4741</th>
       <td>4</td>
-      <td>9.7</td>
+      <td>6.2</td>
       <td>2</td>
+      <td>3</td>
+      <td>641.6</td>
+      <td>0.200678</td>
+      <td>145.035127</td>
+      <td>-37.844022</td>
+      <td>1815000</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26725</th>
+      <td>4</td>
+      <td>5.9</td>
+      <td>4</td>
+      <td>3</td>
+      <td>630.0</td>
+      <td>0.201492</td>
+      <td>145.036430</td>
+      <td>-37.843820</td>
+      <td>2900000</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>26010</th>
       <td>2</td>
-      <td>511.1</td>
-      <td>6.436502</td>
-      <td>145.060570</td>
-      <td>-37.809797</td>
-      <td>1055000</td>
+      <td>5.9</td>
+      <td>1</td>
+      <td>1</td>
+      <td>194.1</td>
+      <td>0.216733</td>
+      <td>145.035148</td>
+      <td>-37.843318</td>
+      <td>1310000</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>17021</th>
+      <td>2</td>
+      <td>5.9</td>
+      <td>1</td>
+      <td>2</td>
+      <td>275.4</td>
+      <td>0.216733</td>
+      <td>145.036874</td>
+      <td>-37.843399</td>
+      <td>820000</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8168</th>
+      <td>2</td>
+      <td>4.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>0.324376</td>
+      <td>145.031300</td>
+      <td>-37.841600</td>
+      <td>690000</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8120</th>
+      <td>3</td>
+      <td>4.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1099.0</td>
+      <td>0.417594</td>
+      <td>145.030300</td>
+      <td>-37.843800</td>
+      <td>1635000</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>25014</th>
+      <td>2</td>
+      <td>4.1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>251.4</td>
+      <td>0.486102</td>
+      <td>145.028589</td>
+      <td>-37.840413</td>
+      <td>700000</td>
+      <td>0</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -1399,99 +1460,37 @@ Close to center
       <th>Lattitude</th>
       <th>Price</th>
       <th>precio_div</th>
+      <th>cluster</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>20214</th>
-      <td>3</td>
-      <td>45.9</td>
-      <td>2</td>
-      <td>4</td>
-      <td>40468.0</td>
-      <td>48.231807</td>
-      <td>144.63257</td>
-      <td>-37.54812</td>
-      <td>930000</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>17077</th>
-      <td>4</td>
+      <th>20477</th>
+      <td>5</td>
       <td>47.3</td>
       <td>2</td>
       <td>2</td>
-      <td>488.6</td>
-      <td>48.306749</td>
-      <td>145.51137</td>
-      <td>-38.05934</td>
-      <td>442000</td>
+      <td>756.0</td>
+      <td>46.705427</td>
+      <td>145.47282</td>
+      <td>-38.08086</td>
+      <td>490000</td>
       <td>0</td>
-    </tr>
-    <tr>
-      <th>23275</th>
-      <td>3</td>
-      <td>44.2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>555.5</td>
-      <td>48.416964</td>
-      <td>144.97782</td>
-      <td>-37.40869</td>
-      <td>390000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>16710</th>
-      <td>3</td>
-      <td>44.2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>502.0</td>
-      <td>48.437659</td>
-      <td>144.97749</td>
-      <td>-37.40853</td>
-      <td>366000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>11188</th>
-      <td>3</td>
-      <td>45.2</td>
       <td>2</td>
+    </tr>
+    <tr>
+      <th>23816</th>
       <td>4</td>
-      <td>724.0</td>
-      <td>48.465570</td>
-      <td>145.52635</td>
-      <td>-37.64685</td>
-      <td>650000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>25562</th>
-      <td>4</td>
-      <td>44.2</td>
+      <td>47.3</td>
       <td>2</td>
-      <td>2</td>
-      <td>757.0</td>
-      <td>48.509563</td>
-      <td>144.98302</td>
-      <td>-37.40744</td>
-      <td>560000</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>20801</th>
-      <td>3</td>
-      <td>44.2</td>
       <td>1</td>
-      <td>2</td>
-      <td>679.0</td>
-      <td>48.599281</td>
-      <td>144.97590</td>
-      <td>-37.40720</td>
-      <td>411000</td>
+      <td>799.0</td>
+      <td>46.806014</td>
+      <td>145.47790</td>
+      <td>-38.07652</td>
+      <td>571000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>27016</th>
@@ -1505,6 +1504,35 @@ Close to center
       <td>-37.40349</td>
       <td>565000</td>
       <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>19136</th>
+      <td>3</td>
+      <td>47.3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>648.0</td>
+      <td>46.981723</td>
+      <td>145.47262</td>
+      <td>-38.08547</td>
+      <td>493000</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>21664</th>
+      <td>4</td>
+      <td>45.2</td>
+      <td>2</td>
+      <td>2</td>
+      <td>23602.0</td>
+      <td>47.991145</td>
+      <td>145.52370</td>
+      <td>-37.65220</td>
+      <td>726000</td>
+      <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>23274</th>
@@ -1518,6 +1546,7 @@ Close to center
       <td>-37.39780</td>
       <td>600000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>23276</th>
@@ -1531,6 +1560,49 @@ Close to center
       <td>-37.39946</td>
       <td>590000</td>
       <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>11188</th>
+      <td>3</td>
+      <td>45.2</td>
+      <td>2</td>
+      <td>4</td>
+      <td>724.0</td>
+      <td>48.465570</td>
+      <td>145.52635</td>
+      <td>-37.64685</td>
+      <td>650000</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>14487</th>
+      <td>4</td>
+      <td>47.3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>553.0</td>
+      <td>47.807215</td>
+      <td>145.48273</td>
+      <td>-38.08699</td>
+      <td>435000</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>17077</th>
+      <td>4</td>
+      <td>47.3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>488.6</td>
+      <td>48.306749</td>
+      <td>145.51137</td>
+      <td>-38.05934</td>
+      <td>442000</td>
+      <td>0</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -1576,6 +1648,7 @@ Close to center
       <th>Lattitude</th>
       <th>Price</th>
       <th>precio_div</th>
+      <th>cluster</th>
     </tr>
   </thead>
   <tbody>
@@ -1591,6 +1664,7 @@ Close to center
       <td>-37.59240</td>
       <td>640000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>13616</th>
@@ -1604,6 +1678,7 @@ Close to center
       <td>-37.68690</td>
       <td>660000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>18496</th>
@@ -1617,6 +1692,7 @@ Close to center
       <td>-37.69011</td>
       <td>707500</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>19447</th>
@@ -1630,6 +1706,7 @@ Close to center
       <td>-37.58993</td>
       <td>560000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>24580</th>
@@ -1643,6 +1720,7 @@ Close to center
       <td>-37.58783</td>
       <td>750000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>20097</th>
@@ -1656,6 +1734,7 @@ Close to center
       <td>-37.58113</td>
       <td>600000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>24043</th>
@@ -1669,6 +1748,7 @@ Close to center
       <td>-37.58624</td>
       <td>695000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>25797</th>
@@ -1682,6 +1762,7 @@ Close to center
       <td>-37.58168</td>
       <td>590000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>25083</th>
@@ -1695,6 +1776,7 @@ Close to center
       <td>-37.57800</td>
       <td>613500</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>25275</th>
@@ -1708,6 +1790,7 @@ Close to center
       <td>-37.58903</td>
       <td>662000</td>
       <td>0</td>
+      <td>2</td>
     </tr>
   </tbody>
 </table>
@@ -1742,6 +1825,7 @@ Close to center
       <th>Lattitude</th>
       <th>Price</th>
       <th>precio_div</th>
+      <th>cluster</th>
     </tr>
   </thead>
   <tbody>
@@ -1757,6 +1841,7 @@ Close to center
       <td>-37.839800</td>
       <td>2620000</td>
       <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>8120</th>
@@ -1769,6 +1854,7 @@ Close to center
       <td>145.030300</td>
       <td>-37.843800</td>
       <td>1635000</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1783,6 +1869,7 @@ Close to center
       <td>-37.841600</td>
       <td>690000</td>
       <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>26010</th>
@@ -1795,6 +1882,7 @@ Close to center
       <td>145.035148</td>
       <td>-37.843318</td>
       <td>1310000</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1809,6 +1897,7 @@ Close to center
       <td>-37.843399</td>
       <td>820000</td>
       <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>4742</th>
@@ -1821,6 +1910,7 @@ Close to center
       <td>145.034300</td>
       <td>-37.840700</td>
       <td>1290000</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1835,6 +1925,7 @@ Close to center
       <td>-37.842145</td>
       <td>1706000</td>
       <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>26725</th>
@@ -1847,6 +1938,7 @@ Close to center
       <td>145.036430</td>
       <td>-37.843820</td>
       <td>2900000</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1861,6 +1953,7 @@ Close to center
       <td>-37.844022</td>
       <td>1815000</td>
       <td>1</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>18042</th>
@@ -1873,6 +1966,7 @@ Close to center
       <td>145.033760</td>
       <td>-37.843910</td>
       <td>3080000</td>
+      <td>1</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -1899,9 +1993,8 @@ Close to center
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="dbscan">
-<h1>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this headline">¶</a></h1>
+<h2>DBSCAN<a class="headerlink" href="#dbscan" title="Permalink to this headline">¶</a></h2>
 <p>Usamos otra tecnica de clustering mas compleja  para corroborar la infrormacion obtenida anteriormente.</p>
 <p>eps muy grande muy pocos clusters…</p>
 <div class="cell docutils container">
@@ -1934,7 +2027,7 @@ Close to center
 </div>
 </div>
 <div class="section" id="hierarchical-clustering">
-<h1>2. Hierarchical clustering<a class="headerlink" href="#hierarchical-clustering" title="Permalink to this headline">¶</a></h1>
+<h2>Hierarchical clustering<a class="headerlink" href="#hierarchical-clustering" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from scipy.cluster.hierarchy import dendrogram, linkage</span>
@@ -1943,6 +2036,7 @@ Close to center
 <span class="c1">#dendrogram(Z)</span>
 <span class="c1">#plt.show()</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -1976,8 +2070,8 @@ Close to center
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="1-DefinicionObjetivos.html" title="previous page">1.  Introducción.</a>
-    <a class='right-next' id="next-link" href="3-Reduccion de la dimensionalidad.html" title="next page">6. Técnicas de reduccion de la dimensionalidad</a>
+    <a class='left-prev' id="prev-link" href="1-DefinicionObjetivos.html" title="previous page">1. ANALISIS INICIAL</a>
+    <a class='right-next' id="next-link" href="3-Reduccion_dimensionalidad.html" title="next page">3. Técnicas de reduccion de la dimensionalidad</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

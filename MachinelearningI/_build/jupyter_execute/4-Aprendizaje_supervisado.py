@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 7. Aprendizaje Supervisado 
+# # 3. Aprendizaje Supervisado 
 # 
 # 
 # 
@@ -21,7 +21,7 @@ import matplotlib.patches as mpatches
 import seaborn as sb
 
 
-# ## 7.1 Modelos de aprendizaje no supervisado 
+# ## Modelos de Aprendizaje Supervisado
 
 # In[2]:
 
@@ -57,7 +57,7 @@ print("Ejemplos usados para entrenar: ", len(train))
 print("Ejemplos usados para test: ", len(test))
 
 
-# ### 7.1.1 GLM : Regresion Logística 
+# ### 1. GLM : Regresion Logística 
 # 
 #  hacer graficas 
 #   con y sin normalizar??
@@ -134,7 +134,7 @@ rlog_disp = plot_roc_curve(model, features, labels)
 plt.show()
 
 
-# ### 7.1.2. K- NEAREST NEIGHBORS (KNN )
+# ### 2. K- NEAREST NEIGHBORS (KNN )
 # 
 # 
 
@@ -331,7 +331,7 @@ Knn_disp = plot_roc_curve(classifier, X, y)
 plt.show()
 
 
-# ### 7.1.3. SVM 
+# ### 3. SVM 
 # 
 # 
 # Primero sin normalizar y despues normalizando 
@@ -390,7 +390,7 @@ print("Kernel rbf", classifier.score(X_test, y_test))
 
 # Normalizando 
 
-# In[29]:
+# In[37]:
 
 
 #NORMALIZACION
@@ -405,7 +405,7 @@ classifier.fit(X, y)
 print(classifier.score(X_test, y_test))
 
 
-# In[30]:
+# In[39]:
 
 
 #from sklearn.model_selection import GridSearchCV
@@ -424,7 +424,7 @@ print(classifier.score(X_test, y_test))
 #y_pred=gs_svc.predict(X_test)
 
 
-# ## 7.2. Evaluacion del punto de corte 
+# ## Evaluacion del punto de corte 
 # 
 # Para elegir el mejor punto de corte  para la categorizacion binaria del precio de las casas en caras y baratas vamos a utilzar la curva ROC. 
 # 
@@ -433,7 +433,7 @@ print(classifier.score(X_test, y_test))
 # corte que maximiza el K-S, que se corresponde con el punto en la curva
 # ROC cuya distancia horizontal al eje es máxima 
 
-# In[31]:
+# In[40]:
 
 
 from sklearn.metrics import roc_auc_score

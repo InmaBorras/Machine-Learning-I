@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 1.  Introducción. 
+# # 1. ANALISIS INICIAL
+
+# ## 1.Introducción. 
 
 # 
 # Los precios de las viviendas en algunas capitales australianas han aumentado recientemente hasta el punto de que algunos describen esto como una burbuja emergente, pero esta afirmación sigue sin ser comprobada oficialmente.
 # 
 
-# ## 1.1. Objetivos
+# ###  Objetivos
 # 
 # El ojetivo del trabajo para las asignatura de Machine Learning I  consistirá evaluar las diferetes técnicas de aprendzaje supervisado y no supervidado, para el cálculo del precio de las viviendas en el área de la ciudad de Melburne (Australia). 
 # 
@@ -18,7 +20,7 @@
 # 
 # 
 # 
-# ## 1.2 Control de cambios
+# ###1.2 Control de cambios
 # 
 # Para la gestion del control de cambios se ha utilizado un repositorio git que puede encontrarse en https://github.com/InmaBorras/Machine-Learning-I". 
 # 
@@ -29,7 +31,7 @@
 gh repo clone InmaBorras/Machine-Learning-I
 
 
-# # 2. Análisis Exploratorio Inicial (EDA) y Preparación de los datos 
+# ## 2. Análisis Exploratorio Inicial (EDA) y Preparación de los datos 
 # 
 # Trás definir el objetivo de la práctica procedemos a hacer el analisis exploratorio de los datos , este trabajo ya lo relazamos en la práctica de Fundamentos de Datos, por lo que nos basaremos en el análisis previamente realizado. 
 # 
@@ -47,7 +49,7 @@ profile = ProfileReport(data, title="Pandas Profiling Report")
 profile
 
 
-# # 3. Seleccion de variables 
+# ## 3. Seleccion de variables 
 # 
 # 
 # Nos basaremos igualmente en el análisis anterior  en el cual calculamos la variables que mas influian en el modelo siendo estas: 
@@ -58,7 +60,7 @@ profile
 # 
 # 
 # 
-# # 4. Categorización del Precio
+# ## 4. Categorización del Precio
 # 
 # 
 # En primer luegar analizamos la distribución del precio. 
@@ -135,7 +137,7 @@ print(len(precio_alto))
 # 
 # 
 # 2-Aprendizaje-No-Super
-# 3-Reduccion de la dimensionalidad
+# 3-Reduccion_dimensionalidad
 # 4-Aprendizaje_supervisado
 # ```
 # 

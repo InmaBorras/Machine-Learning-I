@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7. Aprendizaje Supervisado &#8212; Práctica Machine Learning I</title>
+    <title>3. Aprendizaje Supervisado &#8212; Práctica Machine Learning I</title>
     
   <link rel="stylesheet" href="_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -57,7 +57,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="6. Técnicas de reduccion de la dimensionalidad" href="3-Reduccion de la dimensionalidad.html" />
+    <link rel="prev" title="3. Técnicas de reduccion de la dimensionalidad" href="3-Reduccion_dimensionalidad.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -90,34 +90,24 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="1-DefinicionObjetivos.html">
-   1.  Introducción.
+   1. ANALISIS INICIAL
   </a>
  </li>
 </ul>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="2-Aprendizaje-No-Super.html">
-   5. Aprendizaje no supervisado
+   2.Aprendizaje no supervisado
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="2-Aprendizaje-No-Super.html#dbscan">
-   DBSCAN
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="2-Aprendizaje-No-Super.html#hierarchical-clustering">
-   2. Hierarchical clustering
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="3-Reduccion de la dimensionalidad.html">
-   6. Técnicas de reduccion de la dimensionalidad
+  <a class="reference internal" href="3-Reduccion_dimensionalidad.html">
+   3. Técnicas de reduccion de la dimensionalidad
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   7. Aprendizaje Supervisado
+   3. Aprendizaje Supervisado
   </a>
  </li>
 </ul>
@@ -224,30 +214,30 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelos-de-aprendizaje-no-supervisado">
-   7.1 Modelos de aprendizaje no supervisado
+  <a class="reference internal nav-link" href="#modelos-de-aprendizaje-supervisado">
+   Modelos de Aprendizaje Supervisado
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#glm-regresion-logistica">
-     7.1.1 GLM : Regresion Logística
+     1. GLM : Regresion Logística
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#k-nearest-neighbors-knn">
-     7.1.2. K- NEAREST NEIGHBORS (KNN )
+     2. K- NEAREST NEIGHBORS (KNN )
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#svm">
-     7.1.3. SVM
+     3. SVM
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#evaluacion-del-punto-de-corte">
-   7.2. Evaluacion del punto de corte
+   Evaluacion del punto de corte
   </a>
  </li>
 </ul>
@@ -262,7 +252,7 @@
               <div>
                 
   <div class="section" id="aprendizaje-supervisado">
-<h1>7. Aprendizaje Supervisado<a class="headerlink" href="#aprendizaje-supervisado" title="Permalink to this headline">¶</a></h1>
+<h1>3. Aprendizaje Supervisado<a class="headerlink" href="#aprendizaje-supervisado" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### LIMPIEZA DE DATOS </span>
@@ -279,8 +269,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="modelos-de-aprendizaje-no-supervisado">
-<h2>7.1 Modelos de aprendizaje no supervisado<a class="headerlink" href="#modelos-de-aprendizaje-no-supervisado" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="modelos-de-aprendizaje-supervisado">
+<h2>Modelos de Aprendizaje Supervisado<a class="headerlink" href="#modelos-de-aprendizaje-supervisado" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">###DIVISION DE LOS DATOS----------------------------------------------- </span>
@@ -325,14 +315,14 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ejemplos usados para entrenar:  18878
-Ejemplos usados para test:  8178
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ejemplos usados para entrenar:  18941
+Ejemplos usados para test:  8115
 </pre></div>
 </div>
 </div>
 </div>
 <div class="section" id="glm-regresion-logistica">
-<h3>7.1.1 GLM : Regresion Logística<a class="headerlink" href="#glm-regresion-logistica" title="Permalink to this headline">¶</a></h3>
+<h3>1. GLM : Regresion Logística<a class="headerlink" href="#glm-regresion-logistica" title="Permalink to this headline">¶</a></h3>
 <p>hacer graficas
 con y sin normalizar??</p>
 <div class="cell docutils container">
@@ -392,7 +382,7 @@ con y sin normalizar??</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6922230374174615
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6916820702402957
 </pre></div>
 </div>
 </div>
@@ -408,12 +398,12 @@ con y sin normalizar??</p>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.68      0.72      0.70      4082
-           1       0.70      0.67      0.69      4096
+           0       0.67      0.74      0.70      4024
+           1       0.72      0.64      0.68      4091
 
-    accuracy                           0.69      8178
-   macro avg       0.69      0.69      0.69      8178
-weighted avg       0.69      0.69      0.69      8178
+    accuracy                           0.69      8115
+   macro avg       0.69      0.69      0.69      8115
+weighted avg       0.69      0.69      0.69      8115
 </pre></div>
 </div>
 </div>
@@ -440,7 +430,7 @@ weighted avg       0.69      0.69      0.69      8178
 </div>
 </div>
 <div class="section" id="k-nearest-neighbors-knn">
-<h3>7.1.2. K- NEAREST NEIGHBORS (KNN )<a class="headerlink" href="#k-nearest-neighbors-knn" title="Permalink to this headline">¶</a></h3>
+<h3>2. K- NEAREST NEIGHBORS (KNN )<a class="headerlink" href="#k-nearest-neighbors-knn" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
@@ -523,11 +513,11 @@ weighted avg       0.69      0.69      0.69      8178
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f5facbdeeb0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f5facbdee80&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f5facbdaac0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f5facc00bb0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f5facb8f100&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fac61214610&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fac612142b0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fac61218760&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fac6123db20&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fac611cd070&gt;],
  &lt;a list of 5 Text major ticklabel objects&gt;)
 </pre></div>
 </div>
@@ -556,7 +546,7 @@ weighted avg       0.69      0.69      0.69      8178
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on training set: 0.90
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on test set: 0.83
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on test set: 0.84
 </pre></div>
 </div>
 </div>
@@ -600,18 +590,18 @@ weighted avg       0.69      0.69      0.69      8178
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3369  713]
- [ 587 3509]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3338  686]
+ [ 611 3480]]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.85      0.83      0.84      4082
-           1       0.83      0.86      0.84      4096
+           0       0.85      0.83      0.84      4024
+           1       0.84      0.85      0.84      4091
 
-    accuracy                           0.84      8178
-   macro avg       0.84      0.84      0.84      8178
-weighted avg       0.84      0.84      0.84      8178
+    accuracy                           0.84      8115
+   macro avg       0.84      0.84      0.84      8115
+weighted avg       0.84      0.84      0.84      8115
 </pre></div>
 </div>
 </div>
@@ -637,7 +627,7 @@ weighted avg       0.84      0.84      0.84      8178
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on training set: 0.86
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on training set: 0.85
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on test set: 0.84
@@ -655,18 +645,18 @@ weighted avg       0.84      0.84      0.84      8178
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3360  722]
- [ 608 3488]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3331  693]
+ [ 614 3477]]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.85      0.82      0.83      4082
-           1       0.83      0.85      0.84      4096
+           0       0.84      0.83      0.84      4024
+           1       0.83      0.85      0.84      4091
 
-    accuracy                           0.84      8178
-   macro avg       0.84      0.84      0.84      8178
-weighted avg       0.84      0.84      0.84      8178
+    accuracy                           0.84      8115
+   macro avg       0.84      0.84      0.84      8115
+weighted avg       0.84      0.84      0.84      8115
 </pre></div>
 </div>
 </div>
@@ -695,7 +685,7 @@ weighted avg       0.84      0.84      0.84      8178
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on training set: 0.85
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on test set: 0.83
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of K-NN classifier on test set: 0.84
 </pre></div>
 </div>
 </div>
@@ -710,18 +700,18 @@ weighted avg       0.84      0.84      0.84      8178
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3327  755]
- [ 625 3471]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3324  700]
+ [ 600 3491]]
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
 
-           0       0.84      0.82      0.83      4082
-           1       0.82      0.85      0.83      4096
+           0       0.85      0.83      0.84      4024
+           1       0.83      0.85      0.84      4091
 
-    accuracy                           0.83      8178
-   macro avg       0.83      0.83      0.83      8178
-weighted avg       0.83      0.83      0.83      8178
+    accuracy                           0.84      8115
+   macro avg       0.84      0.84      0.84      8115
+weighted avg       0.84      0.84      0.84      8115
 </pre></div>
 </div>
 </div>
@@ -740,7 +730,7 @@ weighted avg       0.83      0.83      0.83      8178
 </div>
 </div>
 <div class="section" id="svm">
-<h3>7.1.3. SVM<a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h3>
+<h3>3. SVM<a class="headerlink" href="#svm" title="Permalink to this headline">¶</a></h3>
 <p>Primero sin normalizar y despues normalizando
 probar los difrentes kernels</p>
 <div class="cell docutils container">
@@ -796,7 +786,7 @@ probar los difrentes kernels</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kernel rbf 0.7298850574712644
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kernel rbf 0.7280345040049292
 </pre></div>
 </div>
 </div>
@@ -818,7 +808,7 @@ probar los difrentes kernels</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7842993396918562
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7753471795502028
 </pre></div>
 </div>
 </div>
@@ -846,7 +836,7 @@ probar los difrentes kernels</p>
 </div>
 </div>
 <div class="section" id="evaluacion-del-punto-de-corte">
-<h2>7.2. Evaluacion del punto de corte<a class="headerlink" href="#evaluacion-del-punto-de-corte" title="Permalink to this headline">¶</a></h2>
+<h2>Evaluacion del punto de corte<a class="headerlink" href="#evaluacion-del-punto-de-corte" title="Permalink to this headline">¶</a></h2>
 <p>Para elegir el mejor punto de corte  para la categorizacion binaria del precio de las casas en caras y baratas vamos a utilzar la curva ROC.</p>
 <p>En el siguiente gráfico, Figura 1, se representa la curva ROC y el punto de
 corte que maximiza el K-S, que se corresponde con el punto en la curva
@@ -902,7 +892,7 @@ ROC cuya distancia horizontal al eje es máxima</p>
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="3-Reduccion de la dimensionalidad.html" title="previous page">6. Técnicas de reduccion de la dimensionalidad</a>
+    <a class='left-prev' id="prev-link" href="3-Reduccion_dimensionalidad.html" title="previous page">3. Técnicas de reduccion de la dimensionalidad</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # 5. Aprendizaje no supervisado 
+# # 2.Aprendizaje no supervisado 
 # 
 # 
 # 
@@ -85,7 +85,7 @@ scaler = preprocessing.StandardScaler().fit(X)
 Xs = scaler.transform(X)
 
 
-# ##  5.1. Visualización de los datos 
+# ##  Visualización de los datos 
 # 
 # Primero reducimos la dimensionalidad  con el TSNE para poder representar todas la variables 
 # Tambien probamos selecionado las variables  fueron selecionadas en los  modelos ateriores  "Distania_NEW", " Latitude" y "longitude". 
@@ -181,7 +181,7 @@ ax.scatter(X_new[:, 1], X_new[:, 1], X_new[:, 0], c=asignar,s=20)
 # 
 # Duda: las variables estan correlacionadas?? Poner ejemplos de otras varaibles??
 
-# ## 5.2. K-Means 
+# ## K-Means 
 # 
 # Usaremos este modelo por que es simple y util para dataset grandes además es una técnica escalable. 
 # 
@@ -279,7 +279,7 @@ plt.show()
 plot_silhouette(X_new,k,kmeans.labels_,kmeans.cluster_centers_)
 
 
-# In[12]:
+# In[19]:
 
 
 clusters= pd.DataFrame(labels_km)
@@ -290,7 +290,7 @@ clusters= pd.DataFrame(labels_km)
 # 
 # Podemos conlcuir que la separacion en 3 cluster es mas precisa ya que estan mejor separados entre si los datos de los diferentes clusters.
 
-# In[13]:
+# In[25]:
 
 
 ##Yo casi que quitaria esto 
@@ -318,7 +318,7 @@ clusters= pd.DataFrame(labels_km)
 #sb.pairplot(data_RF.dropna(), hue='cluster',size=4,vars=["Lattitude","Distancia_NEW","Longtitude","precio_div"],kind='scatter')
 
 
-# In[14]:
+# In[20]:
 
 
 def close_to_far_from_center(X,centroid, n=10):
@@ -333,7 +333,7 @@ def close_to_far_from_center(X,centroid, n=10):
     
 
 
-# In[15]:
+# In[30]:
 
 
 
@@ -343,7 +343,7 @@ close_to_far_from_center(X_new,kmeans.cluster_centers_[0])
 #stats.describe(kmeans.cluster_centers_[1].sort())
 
 
-# In[16]:
+# In[31]:
 
 
 
@@ -351,7 +351,7 @@ print("Cluster 1")
 close_to_far_from_center(X_new,kmeans.cluster_centers_[1])
 
 
-# In[17]:
+# In[32]:
 
 
 
@@ -361,7 +361,7 @@ close_to_far_from_center(X_new,kmeans.cluster_centers_[2])
 
 # A priori, no se puede observar una gran relación entre la categorización que hemos realizado anteriormente con el precio y los cluster seleccionados habría que estudiar mas en profundidad estas relaciones. 
 
-# In[18]:
+# In[27]:
 
 
 #feature = 'Price'
@@ -378,14 +378,14 @@ close_to_far_from_center(X_new,kmeans.cluster_centers_[2])
 #plt.show()
 
 
-# # DBSCAN
+# ## DBSCAN
 # 
 # Usamos otra tecnica de clustering mas compleja  para corroborar la infrormacion obtenida anteriormente. 
 # 
 # eps muy grande muy pocos clusters...
 # 
 
-# In[19]:
+# In[ ]:
 
 
 #from sklearn.cluster import DBSCAN
@@ -398,7 +398,7 @@ close_to_far_from_center(X_new,kmeans.cluster_centers_[2])
     #print("Cluster sizes: {}".format(np.bincount(labels + 1)))
 
 
-# In[20]:
+# In[ ]:
 
 
 #from sklearn.cluster import DBSCAN
@@ -411,9 +411,9 @@ close_to_far_from_center(X_new,kmeans.cluster_centers_[2])
     #print("Cluster sizes: {}".format(np.bincount(labels + 1)))
 
 
-# # 2. Hierarchical clustering
+# ## Hierarchical clustering
 
-# In[21]:
+# In[ ]:
 
 
 #from scipy.cluster.hierarchy import dendrogram, linkage
