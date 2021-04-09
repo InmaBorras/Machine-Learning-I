@@ -101,7 +101,7 @@ def plot_silhouette(X, k, cluster_labels, centroids):
     ax1.set_xticks([-0.1, 0, 0.2, 0.4, 0.6, 0.8, 1])
 
     colors = cm.nipy_spectral(cluster_labels.astype(float) / k)
-    ax2.scatter(X[:, 0], X[:, 1], marker='o', s=100, alpha=0.5, c=colors)
+    ax2.scatter(X[:, 0], X[:, 2], marker='o', s=100, alpha=0.5, c=colors)
     ax2.scatter(centroids[:,0],centroids[:,1],marker = 'x', c = 'k', s = 200)
     ax2.set_xlabel('$x_1$',fontsize=16)
     ax2.set_ylabel('$x_2$',fontsize=16)
