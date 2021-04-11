@@ -13,14 +13,14 @@
 # 
 # El ojetivo del trabajo para las asignatura de Machine Learning I  consistirá evaluar las diferetes técnicas de aprendzaje supervisado y no supervidado, para el cálculo del precio de las viviendas en el área de la ciudad de Melburne (Australia). 
 # 
-# Lo de conseguir casas baratas en zonas céntricas. 
+# Lo de conseguir casas baratas en zonas céntricas. Cara y baratas.
 # 
 # 
 # Los datos fueron obtenidos de la página de Kaggle "https://www.kaggle.com/anthonypino/melbourne-housing-market". 
 # 
 # 
 # 
-# ###1.2 Control de cambios
+# ### 1.2 Control de cambios
 # 
 # Para la gestion del control de cambios se ha utilizado un repositorio git que puede encontrarse en https://github.com/InmaBorras/Machine-Learning-I". 
 # 
@@ -54,9 +54,15 @@ profile
 # 
 # Nos basaremos igualmente en el análisis anterior  en el cual calculamos la variables que mas influian en el modelo siendo estas: 
 # 
-# " Distania_NEW", "Room" " Latitude", "Landsize" , " Bathrooms", "latitude" y "longitude" 
-# 
-# Serán estas variables las que usaremos para la creación de los modelos. 
+#     -Rooms            
+#     -Bathroom         
+#     -Distance         
+#     -Distancia_NEW    
+#     -Longtitude       
+#     -Landsize         
+#     -Location_TRA     
+#     -BathsAndRooms    
+#     -Lattitude        
 # 
 # 
 # 
@@ -66,12 +72,10 @@ profile
 # En primer luegar analizamos la distribución del precio. 
 # 
 # 
-# 
 
-# In[10]:
+# In[1]:
 
 
-import numpy as np
 import pandas as pd
 import seaborn as sns
 import statistics as stat
@@ -139,5 +143,6 @@ print(len(precio_alto))
 # 2-Aprendizaje-No-Super
 # 3-Reduccion_dimensionalidad
 # 4-Aprendizaje_supervisado
+# 5-GAM
 # ```
 # 

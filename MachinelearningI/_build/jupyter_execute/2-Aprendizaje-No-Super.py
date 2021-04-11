@@ -63,7 +63,7 @@ data_RF=data_RF[['Rooms','Distance','Bathroom','Car','Landsize','Distancia_NEW',
 
 # convertimos el DataFrame al formato necesario para scikit-learn
 data = np.array(data_RF[['Rooms','Distance','Bathroom','Car','Landsize','Distancia_NEW','Longtitude','Lattitude','Price','precio_div']].values)
-data[:,-1]# aqui no se que hace quitamos la cateogiria creo
+
 
 
 
@@ -79,7 +79,7 @@ print(y_price_cat)
 # In[4]:
 
 
-# mas reduccion de la dimensionalidad 
+# estandarizacion
 feature_names = data_RF.columns[0:-1].to_list()# quitamos las columnas de precio categorizado 
 scaler = preprocessing.StandardScaler().fit(X)
 Xs = scaler.transform(X)
@@ -91,7 +91,6 @@ Xs = scaler.transform(X)
 # Tambien probamos selecionado las variables  fueron selecionadas en los  modelos ateriores  "Distania_NEW", " Latitude" y "longitude". 
 # 
 # 
-# "Distania_NEW", "Room" " Latitude", "Landsize" y " Bathrooms". 
 
 # In[5]:
 
@@ -279,10 +278,11 @@ plt.show()
 plot_silhouette(X_new,k,kmeans.labels_,kmeans.cluster_centers_)
 
 
-# In[19]:
+# In[12]:
 
 
-clusters= pd.DataFrame(labels_km)
+clusters= labels_km.cluster_centers_
+print(clusters)
 
 
 #  
@@ -290,32 +290,32 @@ clusters= pd.DataFrame(labels_km)
 # 
 # Podemos conlcuir que la separacion en 3 cluster es mas precisa ya que estan mejor separados entre si los datos de los diferentes clusters.
 
-# In[25]:
+# In[11]:
 
 
 ##Yo casi que quitaria esto 
 
-#import pandas as pd
-#import numpy as np
-#import matplotlib.pyplot as plt
-#import seaborn as sb
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sb
 
-#from mpl_toolkits.mplot3d import Axes3D
-#fig = plt.figure(figsize=(6, 6))
-#ax = Axes3D(fig)
+from mpl_toolkits.mplot3d import Axes3D
+fig = plt.figure(figsize=(6, 6))
+ax = Axes3D(fig)
 
-#colores=['cyan','orange','blue','yellow']
-#asignarx=[]
+colores=['cyan','orange','blue','yellow']
+asignarx=[]
 
-#for row in labels_km.astype('int32'):# asiga a cada row rn labels un color diferente  para cada uno de los clusters
-    #asignarx.append(colores[row])
+for row in labels_km.astype('int32'):# asiga a cada row rn labels un color diferente  para cada uno de los clusters
+    asignarx.append(colores[row])
 
-#ax.scatter(X_new[:, 1], X_new[:, 2], X_new[:, 0], c=asignarx,s=20)#AQUI parece que esta usadno el resutlado de Kmeans
-#data_RF['cluster']=labels_km
+ax.scatter(X_new[:, 1], X_new[:, 2], X_new[:, 0], c=asignarx,s=20)#AQUI parece que esta usadno el resutlado de Kmeans
+data_RF['cluster']=labels_km
 
 
 
-#sb.pairplot(data_RF.dropna(), hue='cluster',size=4,vars=["Lattitude","Distancia_NEW","Longtitude","precio_div"],kind='scatter')
+sb.pairplot(data_RF.dropna(), hue='cluster',size=4,vars=["Lattitude","Distancia_NEW","Longtitude","precio_div"],kind='scatter')
 
 
 # In[20]:

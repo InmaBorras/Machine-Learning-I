@@ -49,6 +49,8 @@ max_corr=corr_matrix['Price'].sort_values(ascending=False)
 datos=datos.drop(columns=['Price'])
 
 
+# Elimina las categoricas y elimino los que tienen una correlacion considerable.
+
 # In[4]:
 
 
@@ -70,7 +72,6 @@ datos=datos.drop(columns=['Bathroom','Distance','Car','BathsAndRooms'])
 
 datos.mean(axis=0)
 
-import pdb;pdb.set_trace()
 datos = datos.apply (pd.to_numeric, errors='coerce')
 
 datos = datos.dropna()
@@ -82,29 +83,27 @@ print('-------------------------')
 datos.var(axis=0)
 
 
-# Entrenamiento modelo PCA con escalado de los datos julia  datos=datos.drop(columns=['Longtitude','Lattitude'])
+# Entrenamos el modelo PCA con escalado de los datos. Probamos a eliminar variables para reducir el número de componentes, pero finalmente se ha decicio seleccionar las que ya teniamos debido a la ifluecia que tienen en las variables. 
 
-# In[ ]:
+# In[6]:
 
 
 pca_pipe = make_pipeline(StandardScaler(), PCA())
 pca_pipe.fit(datos)
-import pdb;pdb.set_trace()
+
 
 # Se extrae el modelo entrenado del pipeline
 modelo_pca = pca_pipe.named_steps['pca']
 
-import pdb;pdb.set_trace()
+
 
 # Se combierte el array a dataframe para añadir nombres a los ejes.
-componentes_df=pd.DataFrame(data    = modelo_pca.components_,columns = datos.columns,index   = ['PC1', 'PC2', 'PC3', 'PC4','PC5'])
-
-import pdb;pdb.set_trace()
+componentes_df=pd.DataFrame(data = modelo_pca.components_,columns = datos.columns,index   = ['PC1', 'PC2', 'PC3', 'PC4','PC5','PC6'])
 
 
-# Realizamos una visualizacion de las componentes y decidimos cual borrar 
+# Realizamos una visualizacion de las componentes para visualizar la influencia de cada variable sobre las componentes. 
 
-# In[ ]:
+# In[7]:
 
 
 fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(4, 2))
@@ -118,7 +117,7 @@ plt.colorbar();
 
 # Explicamos el porcentaje de varianza explicada por cada componente.
 
-# In[ ]:
+# In[8]:
 
 
 print('----------------------------------------------------')
@@ -147,7 +146,14 @@ ax.set_ylim(0, 1.1)
 ax.set_title('Porcentaje de varianza explicada por cada componente')
 ax.set_xlabel('Componente principal')
 ax.set_ylabel('Por. varianza explicada');
-import pdb;pdb.set_trace()
 
 
-# Utilizaremos estas PCA en los modelos a continuación. 
+# Para llegar a un porcentaje alto debiamos usar muchas componentes, lo que  empeora la interpretabilidad del modelo decidimos usar las variables ya seleccionadas. 
+# 
+# Debido a que las componente 6 no influye en el modelo y la variable 'Location_TRA' es la que mas contribuye  a esta componente decidimos eliminarla  'Location_ TRA' de las variable selccionadas. 
+
+# In[ ]:
+
+
+
+

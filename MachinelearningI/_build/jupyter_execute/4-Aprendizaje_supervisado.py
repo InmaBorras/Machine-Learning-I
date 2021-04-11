@@ -4,6 +4,8 @@
 # # 3. Aprendizaje Supervisado 
 # 
 # 
+# Realizaremos disintintos modelos de aprendizaje supervisado, ajustnado sus hiperparametros para posteriormente ver cual de ellos  presenta un mejor desmpeño. 
+# 
 # 
 
 # In[1]:
@@ -23,6 +25,8 @@ import seaborn as sb
 
 # ## Modelos de Aprendizaje Supervisado
 
+# Creamos una nueva variable que se  categorizará el precio en funcion de si es caro(1) o barato (0). 
+
 # In[2]:
 
 
@@ -36,10 +40,14 @@ data= pd.read_csv("seleccion_variables_RF_bathandrooms.csv")
 mediana= 870000.0
 data["precio_div"]= np.where(data["Price"]>=mediana, "1", "0" )#1 es caro Y 0 es barato 
 #print(data.head(100))
-data=data.replace(np.nan,"0")
+#data=data.replace(np.nan,"0")
+
+data.to_csv('csv_precio_div')
+
+
 print(data.groupby('precio_div').size())
 
-
+Preparamos los dataset de training y de test. 
 # In[3]:
 
 
@@ -59,9 +67,10 @@ print("Ejemplos usados para test: ", len(test))
 
 # ### 1. GLM : Regresion Logística 
 # 
-#  hacer graficas 
-#   con y sin normalizar??
 # 
+# 
+
+# Seleccionamos las variables  seleccionada a raiz del PCA 'Distancia_NEW','Lattitude','Longtitude','Landsize' e intentamos predecir la variable categorizada del precio. 
 
 # In[4]:
 
@@ -77,7 +86,7 @@ from sklearn.metrics import accuracy_score
 
 
 #TRAIN 
-features = np.array(train[['Distance','Lattitude','Landsize','Bathroom']])
+features = np.array(train[['Distancia_NEW','Lattitude','Longtitude','Landsize']])
 labels = np.array(train['precio_div'])
 
 
@@ -85,7 +94,7 @@ labels = np.array(train['precio_div'])
 
 
 #TEST
-features_t = np.array(test[['Distance','Lattitude','Landsize','Bathroom']])
+features_t = np.array(test[['Distancia_NEW','Lattitude','Longtitude','Landsize']])
 labels_t = np.array(test['precio_div'])
 
 
@@ -100,17 +109,30 @@ model = linear_model.LogisticRegression()
 model.fit(features, labels)#The first is a matrix of features, and the second is a matrix of class labels. 
 
 
+# Evaluamos como de bueno ha sido el ajuste del modelo sobre los propios datos de entrenamiento.  
+
 # In[8]:
 
 
-#Validacion del modelo
+predictions= model.predict(features)
+print(accuracy_score(labels, predictions))
 
-#predicion of the class
+
+# Validamos el modelos usando los datos de test. 
+
+# In[9]:
+
+
+#Validacion del modelo
 predictions_t= model.predict(features_t)
 print(accuracy_score(labels_t, predictions_t))
 
 
-# In[9]:
+# Para obtener mas información sobre el modelo  procedemos a evaluar los resultados con un matriz de confusión  y un reporte de clasificación.  
+
+# #### 1.1. Evaluación del modelo de Regresión Logística
+
+# In[10]:
 
 
 #Reporte de resultados del Modelo
@@ -118,7 +140,11 @@ print(accuracy_score(labels_t, predictions_t))
 print(classification_report(labels_t , predictions_t))
 
 
-# In[10]:
+# Podemos observar que la distribución entre ambas categorias es bastante homogénea,  al igual que el acierto en la predicción de cada una de ellas es parecida aunque ligeramente superior en la categoría de casas caras. 
+# 
+# F1 score  es 0.62  un valor que  se puede considerar como aceptable. 
+
+# In[11]:
 
 
 #dibujo de la Curva ROC
@@ -138,7 +164,7 @@ plt.show()
 # 
 # 
 
-# In[11]:
+# In[12]:
 
 
 from sklearn.neighbors import KNeighborsClassifier
@@ -147,20 +173,22 @@ from sklearn.model_selection import train_test_split
 from sklearn.neighbors import KNeighborsClassifier
 
 
-# In[12]:
+# In[13]:
 
 
 # # SELECCION DE VARIABLES
 
-X = train[['Distance','Lattitude','Landsize','Bathroom']].values
+X = train[['Distancia_NEW','Lattitude','Longtitude','Landsize']].values
 y = train['precio_div'].values
 
-X_test=test[['Distance','Lattitude','Landsize','Bathroom']].values
+X_test=test[['Distancia_NEW','Lattitude','Longtitude','Landsize']].values
 y_test=test['precio_div'].values
  
 
 
-# In[13]:
+# Para realizar  el modelo de Knn primero estandarizamos los datos. 
+
+# In[14]:
 
 
 #NORMALIZACION
@@ -170,32 +198,9 @@ X = scaler.transform(X)
 X_test = scaler.transform(X_test)
 
 
-# In[14]:
+# #### 2.1. Ajuste de hiperparametros 
 
-
-
-#encontrar la mejor k 
-
-#best_k=0
-#best_score=0
-#neighbors=range(1,10,2)#considerara min_k=1, max_k=25, solo odd numbers 
-#for k in neighbors:
-    #knn=KNeighborsClassifier(n_neighbors=k) #instantiante classifier
-    #knn.fit(X, y )# fit model 
-    #knn_y_pred= knn.predict(X_test)
-    
-    #we will consider the optimal k to be the k that produce the highest f1 score
-    #f1 = metrics.f1_score(y_test, knn_y_pred, pos_label= 0)
-    #if f1> best_score:
-        #best_k= k 
-        #best_score =f1
-        
-
-#instantiate the classifier with the optimal k, fir the model and make predictions
-#knn=  KNeighborsClassifier(n_neighbors=best_k) 
-#knn.fit(X, y )
-#knn_y_pred= knn.predict(X_test)
-
+# Con el objetivo de elegir el mejor número de vecinos dibujamos una gráfica con todas las variables en un rango entre 0 y 20. 
 
 # In[15]:
 
@@ -216,31 +221,49 @@ plt.scatter(k_range, scores)
 plt.xticks([0,5,10,15,20])
 
 
+# Visualizando la gráfica anterior buscamos el valor de k que nos proporcione el mejor f1-score dentro del rango entre 1 y 10 vecinos. 
+
 # In[16]:
 
 
-#Hiperparametros-
-n_neighbors = 3
-#algorithm='brute'
-#p=1
-weights='distance'# uniforme ( todos los puntos son iguales )
-#n_jobs=-1
 
-classifier = KNeighborsClassifier(n_neighbors)
+#encontrar la mejor k 
 
-# #Train the classifier
-classifier.fit(X,y)
-print('Accuracy of K-NN classifier on training set: {:.2f}'.format(classifier.score(X, y)))
-print('Accuracy of K-NN classifier on test set: {:.2f}'.format(classifier.score(X_test, y_test)))
+best_k=0
+best_score=0
+neighbors=range(1,10,2)#considerara min_k=1, max_k=10, solo odd numbers 
+for k in neighbors:
+    knn=KNeighborsClassifier(n_neighbors=k) #instantiante classifier
+    knn.fit(X, y )# fit model 
+    knn_y_pred= knn.predict(X_test)
+    
+    #we will consider the optimal k to be the k that produce the highest f1 score
+    f1 = metrics.f1_score(y_test, knn_y_pred, pos_label='1')
+    if f1> best_score:
+        best_k= k 
+        best_score =f1
+        
+print (best_k)
 
+
+# Obtenemos que el mejor valor para k y por lo tanto procedemos a  entrenar nuestro modelo con el. Este dato corresponde con la gráfica anteriormente  visualizada. 
 
 # In[17]:
 
 
-#ENTRENAR EL MODELO
+#instantiate the classifier with the optimal k, fir the model and make predictions
+knn=  KNeighborsClassifier(n_neighbors=best_k) 
+knn.fit(X, y )
+knn_y_pred= knn.predict(X_test)
+
+
+# #### 2.2 Evaluación del modelo de KNN
+
+# In[18]:
+
 
 #Hiperparametros-
-n_neighbors = 5
+n_neighbors = best_k
 #algorithm='brute'
 #p=1
 weights='distance'# uniforme ( todos los puntos son iguales )
@@ -252,78 +275,22 @@ classifier = KNeighborsClassifier(n_neighbors)
 classifier.fit(X,y)
 print('Accuracy of K-NN classifier on training set: {:.2f}'.format(classifier.score(X, y)))
 print('Accuracy of K-NN classifier on test set: {:.2f}'.format(classifier.score(X_test, y_test)))
-
-
-# In[18]:
-
-
-#PRECISION DEL MODELO
-pred = classifier.predict(X_test)
-print(confusion_matrix(y_test, pred))
-print(classification_report(y_test, pred))
 
 
 # In[19]:
 
 
+#PRECISION DEL MODELO
+pred = classifier.predict(X_test)
+print(confusion_matrix(y_test, pred))
+print(classification_report(y_test, pred))
 
-#ENTRENAR EL MODELO
 
-#Hiperparametros-
-n_neighbors = 11
-#algorithm='brute'
-#p=1
-weights='distance'# uniforme ( todos los puntos son iguales )
-#n_jobs=-1
+# Obtenemos un f1-score de 0.81 lo cual es bastante bueno. 
 
-classifier = KNeighborsClassifier(n_neighbors)
-
-# #Train the classifier
-classifier.fit(X,y)
-print('Accuracy of K-NN classifier on training set: {:.2f}'.format(classifier.score(X, y)))
-print('Accuracy of K-NN classifier on test set: {:.2f}'.format(classifier.score(X_test, y_test)))
-
+# Representamos la curva ROC para ver como se comporta el modelo en relación a falsos positivos y  verdaderos positivos. 
 
 # In[20]:
-
-
-#PRECISION DEL MODELO
-pred = classifier.predict(X_test)
-print(confusion_matrix(y_test, pred))
-print(classification_report(y_test, pred))
-
-
-# In[21]:
-
-
-
-#ENTRENAR EL MODELO
-
-#Hiperparametros-
-n_neighbors = 15
-#algorithm='brute'
-#p=1
-weights='distance'# uniforme ( todos los puntos son iguales )
-#n_jobs=-1
-
-classifier = KNeighborsClassifier(n_neighbors)
-
-# #Train the classifier
-classifier.fit(X,y)
-print('Accuracy of K-NN classifier on training set: {:.2f}'.format(classifier.score(X, y)))
-print('Accuracy of K-NN classifier on test set: {:.2f}'.format(classifier.score(X_test, y_test)))
-
-
-# In[22]:
-
-
-#PRECISION DEL MODELO
-pred = classifier.predict(X_test)
-print(confusion_matrix(y_test, pred))
-print(classification_report(y_test, pred))
-
-
-# In[23]:
 
 
 #Pintar curva ROC
@@ -334,10 +301,12 @@ plt.show()
 # ### 3. SVM 
 # 
 # 
+# 
+# 
 # Primero sin normalizar y despues normalizando 
 # probar los difrentes kernels 
 
-# In[24]:
+# In[21]:
 
 
 from sklearn.svm import SVC
@@ -345,19 +314,21 @@ from sklearn import svm
 from sklearn.naive_bayes import GaussianNB
 
 
-# In[25]:
+# In[22]:
 
 
-X = train[['Distance','Lattitude','Landsize','Bathroom']].values
+X = train[['Distancia_NEW','Lattitude','Longtitude','Landsize']].values
 y = train['precio_div'].values
 
-X_test=test[['Distance','Lattitude','Landsize','Bathroom']].values
+X_test=test[['Distancia_NEW','Lattitude','Longtitude','Landsize']].values
 y_test=test['precio_div'].values
 
 
+# Realizamos el modelo de SVM con los tres tipos de Kernel  más comunes Lineal, polinomico y rbf. Los tres con los mismos valores de C para evaluar cual tiene mejor resultado. 
+
 # Kernel Lineal 
 
-# In[26]:
+# In[23]:
 
 
 #classifier = SVC(kernel = "linear", C = 2)
@@ -368,7 +339,7 @@ y_test=test['precio_div'].values
 
 # Kernel Polinómico
 
-# In[27]:
+# In[24]:
 
 
 #classifier = SVC(kernel = "poly",degree= 2, C = 2)
@@ -379,7 +350,7 @@ y_test=test['precio_div'].values
 
 # Kernel RBF
 
-# In[28]:
+# In[25]:
 
 
 classifier = SVC(kernel = "rbf", gamma = 0.3, C = 2)
@@ -388,40 +359,79 @@ classifier.fit(X, y)
 print("Kernel rbf", classifier.score(X_test, y_test))
 
 
-# Normalizando 
+# El modelo que mejor resultado obtiene es el propuesto con kernel "rbf". Normalizamos los datos para observar si mejora el rendimiento.
 
-# In[37]:
+# In[24]:
 
 
 #NORMALIZACION
 
 scaler = preprocessing.StandardScaler().fit(X)
-X = scaler.transform(X)
-X_test = scaler.transform(X_test)
+X_norm = scaler.transform(X)
+X_test_norm = scaler.transform(X_test)
+
+
+#Prediccion con datos normalizados 
+
 
 classifier = SVC(kernel = "rbf", gamma = 0.3, C = 2)
-classifier.fit(X, y) 
+classifier.fit(X_norm, y) 
 #print(classifier.predict(X_test))
-print(classifier.score(X_test, y_test))
+print(" Kernel rbf con datos normalizados: ", classifier.score(X_test_norm, y_test))
 
 
-# In[39]:
+# #### 3.1.Ajuste de hiperparametros
+# 
+# Hemos obtenido que normalizando los datos y usando el Kernel 'rbf'  obtenemos los mejores resultados , partiremos de esa base para el cálculo de hiperparámetros.
+# 
+# Aplicamos esta técnica para probar diferentes C y Gammas. 
+
+# In[25]:
 
 
-#from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import GridSearchCV
 
-#define the hyperparameters we ant to tune 
-#param_grid={
-            #'kernel':['rbf'],
-            #'C':[0.001,0.01,0.1,1,10],
-            #'gamma': [0.001,0.01,0.1,1],
-#}
+#define the hyperparameters we want to tune 
+param_grid={
+            'kernel':['rbf'],
+            'C':[0.001,0.01,0.1,1,10],
+            'gamma': [0.001,0.01,0.1,1],
+            }
 
 #instantiate GridSearchCV fit model, and male prediction
 
-#gs_svc=GridSearchCV(SVC(), param_grid=param_grid)
-#gs_svc.fit(X,y)
-#y_pred=gs_svc.predict(X_test)
+gs_svc=GridSearchCV(SVC(), param_grid=param_grid)
+gs_svc.fit(X_norm,y)
+c=gs_svc.predict(X_test_norm)
+
+
+# In[26]:
+
+
+print(param_grid)
+
+
+# In[31]:
+
+
+print(gs_svc.score(X_test_norm, y_test))
+
+
+# Tras el ajuste de los hiperparámetros el resultado obtenido por svm  alcanza mi un porcetaje muy elevado. 
+
+# In[35]:
+
+
+#PRECISION DEL MODELO
+pred = gs_svc.predict(X_test_norm)
+print(classification_report(y_test, pred))
+
+
+# In[30]:
+
+
+svm_roc = plot_roc_curve(gs_svc, X_norm, y)
+plt.show()
 
 
 # ## Evaluacion del punto de corte 
@@ -433,7 +443,7 @@ print(classifier.score(X_test, y_test))
 # corte que maximiza el K-S, que se corresponde con el punto en la curva
 # ROC cuya distancia horizontal al eje es máxima 
 
-# In[40]:
+# In[36]:
 
 
 from sklearn.metrics import roc_auc_score
@@ -446,6 +456,7 @@ from sklearn.model_selection import train_test_split
 ax = plt.gca()
 rlog_disp.plot(ax=ax, alpha=0.8)
 Knn_disp.plot(ax=ax, alpha=0.8)
+svm_roc.plot(ax=ax, alpha=0.8)
 plt.show()
 
 
